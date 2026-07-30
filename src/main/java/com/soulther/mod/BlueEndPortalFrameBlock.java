@@ -1,4 +1,4 @@
-package com.seninpaketin.soulthermod.block.custom;
+package com.soulther.mod;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
@@ -20,7 +20,7 @@ public class BlueEndPortalFrameBlock extends Block {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, net.minecraft.world.InteractionHand hand, BlockHitResult hit) {
-        // Eğer çerçevede göz yoksa ve elindeki eşya bizim özel gözümüzse
+        // Eğer çerçevede göz yoksa ve elindeki eşya Ender Gözü ise
         if (!state.getValue(HAS_EYE) && player.getItemInHand(hand).is(net.minecraft.world.item.Items.ENDER_EYE)) { 
             if (!level.isClientSide()) {
                 // Yaratıcı modda değilse elindeki gözü 1 tane azalt
@@ -30,7 +30,7 @@ public class BlueEndPortalFrameBlock extends Block {
                 // Çerçeveyi gözlü duruma getir
                 level.setBlock(pos, state.setValue(HAS_EYE, true), 3);
                 
-                // 12 çerçevenin tamamlanıp tamamlanmadığını kontrol eden metodumuzu buraya çağırıyoruz
+                // 12 çerçevenin tamamlanma kontrolünü tetikleyen metot
                 checkAndCreatePortal(level, pos);
             }
             return InteractionResult.SUCCESS;
