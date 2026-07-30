@@ -28,9 +28,3 @@ jobs:
       with:
         name: Soulther-JAR
         path: build/libs/*.jar
-
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: Soulther-JAR
-        path: build/libs/*.jar
