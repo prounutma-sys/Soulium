@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All rights reserved"
+
+[[mods]]
+modId="soulther"
+version="1.0.0"
+displayName="Soulther"
+authors="Defender11 Team"
+description='''
+Defender11 Team tarafindan gelistirilen özel Soulther karanlik boyut ve mekanik modu.
+'''
+
+[[dependencies.soulther]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.soulther]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="NONE"
+    side="BOTH"
