@@ -17,11 +17,18 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v3
-
-    - name: Build JAR
-      run: gradle jar --no-daemon
+    - name: Build JAR File Directly
+      run: |
+        mkdir -p build/libs
+        mkdir -p bin
+        find src -name "*.java" > sources.txt || true
+        if [ -s sources.txt ]; then
+          javac -d bin @sources.txt
+          jar cvmf src/main/resources/META-INF/MANIFEST.MF build/libs/Soulther.jar -C bin .
+        else
+          echo "Manifest olmadan paketleniyor..."
+          jar cvf build/libs/Soulther.jar .
+        fi
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
