@@ -1,28 +1,38 @@
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java']
-        }
-        resources {
-            srcDirs = ['src/main/resources']
-        }
-    }
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+
+group = 'com.defender11'
+version = '1.0.0'
+archivesBaseName = 'soulther'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
 }
 
 jar {
     manifest {
         attributes([
-            "Specification-Title": "soulther",
-            "Specification-Vendor": "Defender11 Team",
-            "Specification-Version": "1",
-            "Implementation-Title": project.name,
-            "Implementation-Version": project.jar.archiveVersion,
-            "Implementation-Vendor" :"Defender11 Team",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            "Specification-Title"     : "soulther",
+            "Specification-Vendor"    : "Defender11 Team",
+            "Specification-Version"   : "1",
+            "Implementation-Title"    : project.name,
+            "Implementation-Version"  : project.version,
+            "Implementation-Vendor"   : "Defender11 Team"
         ])
     }
-    // Ana kodları ve kaynakları doğrudan JAR'ın içine doldurur
-    from sourceSets.main.output
-    
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
