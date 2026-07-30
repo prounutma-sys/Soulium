@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "item:dark-pickaxe"
+    "layer0": "modid:dark-pickaxe"
   }
 }
