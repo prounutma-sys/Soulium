@@ -1,0 +1,11 @@
+{
+  "type": "soulthermod:soul_realm_type",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "minecraft:overworld",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "soulthermod:soul_wastelands"
+    }
+  }
+}
